@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center text-primary mb-4">Fake User App</h1>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-primary">User Data</h2>
+                <ul id="list-group" class="list-group">
+                    <li class="list-group-item"><strong>Username:</strong> {{ response.username }}</li>
+                    <li class="list-group-item"><strong>Sex:</strong> {{ response.sex }}</li>
+                    <li class="list-group-item"><strong>Address:</strong> {{ response.address }}</li>
+                    <li class="list-group-item"><strong>Name:</strong> {{ response.name }}</li>
+                    <li class="list-group-item"><strong>Email:</strong> {{ response.email }}</li>
+                    <li class="list-group-item"><strong>Birthday:</strong> {{ response.birthday }}</li>
+                </ul>
+                <button class="btn btn-primary mt-3" onclick="copyData()">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyData() {
+            var copyText = document.getElementById("list-group").innerText;
+            var textarea = document.createElement("textarea");
+            textarea.value = copyText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>
